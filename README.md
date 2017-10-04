@@ -23,7 +23,3 @@ UnitConverter<Mass> converter = MassUnit.GRAM.getUnitConverterTo(MassUnit.OUNCE)
 
 Use a converter to convert:
 double result = converter.convert(1.52);
-
-a Conversion object contains the from- and to units and the from and to values of a conversion:
-Conversion conversion = meas.convertTo()
- 
