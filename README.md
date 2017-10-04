@@ -9,19 +9,21 @@ Unit<Length> lengthUnit = LengthUnit.METER;
 Unit<Temperature> temperatureUnit = TemperatureUnit.CELCIUS;
 
 To create a measurement consisting of a value and a unit of of a particular quantity:
-Measurement meas = new Measurement(1.0, MassUnit.Kilogram);
+Measurement<Mass> meas = new Measurement<>(30.0, MassUnit.GRAM);
+
+To convert a measurement into a measurement of another unit (e.g. gram to ounce):
+Measurement<Mass> convertedMeas = meas.convertTo(MassUnit.OUNCE);
+
+To print a measurement with a predefined number of decimals (e.g. 2 decimals):
+System.out.println("converted " + meas.formattedString(2) " to " convertedMeas.formattedString(2);
 
 To create a converter from one unit to another unit of the same quantity:
 UnitConverter<Mass> converter = new MassConverter(MassUnit.GRAM, MassUnit.OUNCE);
 UnitConverter<Mass> converter = MassUnit.GRAM.getUnitConverterTo(MassUnit.OUNCE);
 
-To convert:
+Use a converter to convert:
 double result = converter.convert(1.52);
 
- or
- 
- Measurement meas = new Measurement(10.45, LengthUnit.INCH);
- Conversion conversion = meas.convertTo(LengthUnit.CENTIMETER);
- 
- where conversion is an object containing the from- and to units and the from- and to values of the conversion.
+a Conversion object contains the from- and to units and the from and to values of a conversion:
+Conversion conversion = meas.convertTo()
  
